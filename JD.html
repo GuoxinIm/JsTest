@@ -1,0 +1,152 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>京东导航</title>
+	<style type="text/css">
+	*{
+		margin:0;
+		padding:0;
+	}
+		body{
+			padding: 0;
+			font-size:16px;
+		}
+		.topMenu{
+			display:block;
+			width:190px;
+			margin:0;
+			padding:0;
+			background-color:#6e6568; 
+		}
+		.topTitle{
+			height:170px;
+			width:190px;
+			background-image: url(1.png);
+			
+			
+		}
+		.topMenu li{
+			height:30px;
+			line-height:30px;
+			font-size:14px;
+			text-align:left;
+			padding-left:8px;
+			z-index: 3;
+		}
+		.topMenu li a{
+			text-decoration:none;
+			color:#FFFFFF;
+		}
+		.topMenu li a:hover{
+			text-decoration:underline;
+			color:#e4393c;
+			font-weight:bold;
+		}
+		.topMenu li:hover{
+			background-color: #999395;
+
+			
+		}
+		.subMenu{
+			display: none;
+			width:1000px;
+			margin:0;
+			margin-left: 180px;
+			position:absolute;
+			top:170px;
+			border:1px solid #DDD;
+			border-left: none;
+			z-index: 4
+			color:#F7F7F7;
+
+		}
+		.leftDiv{
+			width:810px;
+			height:500px;
+			/*background-color: blue;*/
+			float:left;
+			position:relative;
+
+		}
+		.topMenu li .rightDiv{
+			width:190px;
+			/*background-color: red;*/
+			float:left;
+		}
+		.topMenu li:hover .subMenu{
+			display:block;
+		}
+		.ledtDiv dl{
+			border: 1px solid #A8A8A8;
+			padding-bottom: 5px;
+			overflow: hidden;
+		}
+		.leftDiv dl dt{
+			display:block;
+			text-align:right;
+			float:left;
+			width:100px;
+			height:30px;
+			line-height: 30px;
+		}
+		.leftDiv dl dt a {
+			color:#666666;
+			font-size:14px;
+			font-weight:bold;
+		}
+		.leftDiv dl dd{
+			display:block;
+			overflow:hidden;
+		}
+		.leftDiv dl dd a{
+			color:#666666;
+			font-size:12px;
+			margin-left:10px;
+			padding-left: 5px;
+			border-left: 1px solid #A8A8A8;
+		}
+		
+		
+		
+	</style>
+</head>
+<body>
+	<div class="topTitle">
+	
+	</div>
+		<ul class="topMenu">
+			<li><a href="#">家用电器</a>
+			<div class="subMenu">
+				<div class="leftDiv">
+					<dl>
+						<dt><a href="#">电视 ></a></dt>
+						<dd><a href="#">合资品牌</a>
+							<a href="#">国产品牌</a>
+							<a href="#">互联网品牌</a>
+						</dd>
+					</dl>
+				</div>
+				<div class="rightDiv">
+					广告
+				</div>
+			</div>
+			</li>
+			<li><a href="#">手机 / 运营商 / 数码</a></li>
+			<li><a href="#">电脑 / 办公</a></li>
+			<li><a href="#">家居 / 家具 / 家装 / 厨具</a></li>
+			<li><a href="#">男装 / 女装 / 童装 / 内衣</a></li>
+			<li><a href="#">美妆个护 / 清洁用品 / 宠物</a></li>
+			<li><a href="#">鞋靴 / 箱包 / 珠宝 / 奢侈品</a></li>
+			<li><a href="#">运动 / 户外 / 钟表</a></li>
+			<li><a href="#">汽车 / 汽车用品</a></li>
+			<li><a href="#">母婴 / 玩具 / 乐器</a></li>
+			<li><a href="#">食品 / 酒类 / 生鲜 / 特产</a></li>
+			<li><a href="#">医药保健</a></li>
+			<li><a href="#">图书 / 音像 / 电子书</a></li>
+			<li><a href="#">机票 / 酒店 / 旅游 / 生活</a></li>
+			<li><a href="#">理财 / 众筹 / 白条 / 保险</a></li>
+		</ul>
+	
+</body>
+</html>
