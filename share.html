@@ -33,10 +33,10 @@
 	window.onload=function(){
 		var oDiv = document.getElementById('div1');
 		oDiv.onmouseover=function(){
-			startMove(30,0);
+			startMove(10,0);
 		}
 		oDiv.onmouseout = function(){
-			startMove1(30,-300);
+			startMove(-10,-300);
 		}
 }
 		var time = null;
@@ -49,19 +49,9 @@
 				}else{
 				oDiv.style.left=oDiv.offsetLeft+speed+'px';
 				}
-			},speed);
+			},10);
 		}
-		function startMove1(speed,iTarget){
-			clearInterval(time);
-			var oDiv = document.getElementById('div1');
-			time=setInterval(function(){
-				if(oDiv.offsetLeft==iTarget){
-					clearInterval(time);
-				}else{
-					oDiv.style.left=oDiv.offsetLeft-speed+'px';
-				}
-			},speed);
-		}
+		
 
 </script>
 </head>
