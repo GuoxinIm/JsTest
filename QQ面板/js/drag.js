@@ -1,6 +1,6 @@
 function getByClass(clsName,parent){
-	var oParent = parent?document.getElementById(parent):document;
-	eles[];
+	var oParent = parent?document.getElementById(parent):document,
+	eles[],
 	elements = oParent.getElementsTagName('*');
 
 	for(var i=0;i<elements.length;i++){
