@@ -21,6 +21,12 @@ function drag() {
 	oClose.onclick = function(){
 		document.getElementById('loginPanel').style.display = 'none';
 	}
+	//切换状态
+	var loginState=document.getElementById('loginState');
+	var stateList=document.getElementById('loginStatePanel');
+	var lis = stateList.getElementsByTagName('li');
+	var	stateTxt = document.getElementById('login2qq_state_txt');
+    var	loginStateShow = document.getElementById('loginStateShow');
 }
 
 function fndown() {
