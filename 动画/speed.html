@@ -36,35 +36,39 @@
             var odiv = document.getElementById('div1');
             //绑定鼠标滑过事件
             odiv.onmouseover = function () {
-                startMove()
+                startMove(0,10)
             }
             //绑定鼠标离开事件
             odiv.onmouseout = function () {
-                stopMove();
+                stopMove(-300,-10);
             }
         }
         var timer = null;
-        //滑过函数
-        function startMove() {
+        //滑过函数 
+            function startMove(iTarget,speed) {
             var odiv = document.getElementById('div1');
             clearInterval(timer);
             timer = setInterval(function () {
-                if (odiv.offsetLeft == 0) {
+                var speed = (iTarget-odiv.offsetLeft)/20;
+                speed = Math.ceil(speed);
+                if (odiv.offsetLeft == iTarget) {
                     clearInterval(timer);
                 } else {
-                    odiv.style.left = odiv.offsetLeft + 10 + 'px';
+                    odiv.style.left = odiv.offsetLeft + speed + 'px';
                 }
             }, 10)
         }
         //离开函数
-        function stopMove() {
+        function stopMove(iTarget,speed) {
             var odiv = document.getElementById('div1');
             clearInterval(timer);
             timer = setInterval(function () {
-                if (odiv.offsetLeft == -300) {
+                var speed = (iTarget-odiv.offsetLeft)/20;
+                speed = Math.floor(speed);
+                if (odiv.offsetLeft == iTarget) {
                     clearInterval(timer);
                 } else {
-                    odiv.style.left = odiv.offsetLeft - 10 + 'px';
+                    odiv.style.left = odiv.offsetLeft + speed + 'px';
                 }
             }, 10)
         }
