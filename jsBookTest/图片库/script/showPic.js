@@ -1,28 +1,30 @@
 function showPic(whichpic) {
 	if(!document.getElementById("placeholder")) {
-		return false;
+		return true;
 	}
 	var source = whichpic.getAttribute("href");
 	var placeholder = document.getElementById("placeholder");
-	if(placeholder.nodeName != "IMG") {
+	placeholder.setAttribute("src", source);
+	if(!document.getElementById("description")) {
 		return false;
 	}
-	placeholder.setAttribute("src", source);
-	if(document.getElementById("description")) {
-		var description = document.getElementById("description");
-		var text = whichpic.getAttribute("title") ? whichpic.getAttribute("title") : ""
-		if(description.firstChild.nodeType == 3) {
-			description.firstChild.nodeValue = text;
-		}
+	if(whichpic.getAttribute("title")) {
+		var text = whichpic.getAttribute("title");
+	} else {
+		var text = "";
 	}
-	return true;
+	var description = document.getElementById("description");
+	if(description.firstChild.nodeType == 3) {
+		description.firstChild.nodeValue = text;
+	}
+	return false;
 }
 
 function prepareGallery() {
-	if(!document.getElementsByName) {
+	if(!document.getElementsByTagName) {
 		return false;
 	}
-	if(!document.getElmentById) {
+	if(!document.getElementById) {
 		return false;
 	}
 	if(!document.getElementById("imagegallery")) {
@@ -32,37 +34,22 @@ function prepareGallery() {
 	var links = gallery.getElementsByTagName("a");
 	for(var i = 0; i < links.length; i++) {
 		links[i].onclick = function() {
-			return !showPic(this);
-			
+			return showPic(this);
 		}
+		links[i].onkeypress = links[i].onclick;
 	}
 }
-function addLoadEvent(func){
+
+function addLoadEvent(func) {
 	var oldonload = window.onload;
-	if(typeof window.onload!='function' ){
+	if(typeof window.onload != 'function') {
 		window.onload = func;
-	}else{
-		window.onload = function(){
+	} else {
+		window.onload = function() {
 			oldonload();
 			func();
 		}
 	}
 }
+
 addLoadEvent(prepareGallery);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
