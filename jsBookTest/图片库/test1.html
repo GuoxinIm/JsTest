@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Image Gallery</title>
+		<link rel="stylesheet" href="style/layout.css" />
+	</head>
+
+	<body>
+		<h1>Snapshots</h1>
+		<ul>
+			<li>
+				<a href="images/1.jpg" onclick="showPic(this);return false;" title="beach">Beach</a>
+			</li>
+			<li>
+				<a href="images/2.jpg" onclick="showPic(this);return false;" title="child">Child</a>
+			</li>
+			<li>
+				<a href="images/3.jpg" onclick="showPic(this);return false;" title="water">Water</a>
+			</li>
+			<li>
+				<a href="images/4.jpg" onclick="showPic(this);return false;" title="airplane">Airplane</a>
+			</li>
+			<li>
+				<a href="images/5.jpg" onclick="showPic(this);return false;" title="mountain">Mountain</a>
+			</li>
+		</ul>
+		<img id="placeholder" src="images/null.png" alt="NULL" />
+		<p id="description">Choose an image.</p>
+		<script type="text/javascript" src="script/showPic.js"></script>
+	</body>
+
+</html>

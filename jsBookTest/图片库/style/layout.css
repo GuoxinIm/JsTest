@@ -1,0 +1,28 @@
+body{
+	font-family: "microsoft yahei";
+	color:#333;
+	background:#CCC;
+	margin:15px 10%;
+}
+h1{
+	color:#333;
+	background-color:transparent;
+}
+a{
+	color:#C60;
+	background-color:transparent;
+	font-weight:bold;
+	text-decoration:none;
+}
+ul{
+	padding:0;
+}
+li{
+	float:left;
+	padding:15px;
+	list-style:none;
+}
+img{
+	display:block;
+	clear:both;
+}
