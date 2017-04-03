@@ -1,28 +1,41 @@
 function moveElement(elementID, final_x, final_y, interval) {
-    if (!document.getElementById || !document.getElementById("message")) {
+    if (!document.getElementById || !document.getElementById(elementID)) {
         return false;
     }
     var elem = document.getElementById(elementID);
+    if (elem.movement) {
+        clearTimeout(elem.movement);
+    }
+    if(!elem.style.left){
+        elem.style.left="0px";
+    }
+    if(!elem.style.top){
+        elem.style.top="0px";
+    }
+    var dist = 0;
     var xpos = parseInt(elem.style.left);
     var ypos = parseInt(elem.style.top);
-    if(xpos==final_x&&ypos==final_y){
+    if (xpos == final_x && ypos == final_y) {
         return true;
     }
-    if(xpos<final_x){
-        xpos++;
+    if (xpos < final_x) {
+        dist = Math.ceil((final_x - xpos) / 10)
+        xpos = xpos + dist;
     }
-    if(xpos>+final_x){
-        xpos--;
+    if (xpos > final_x) {
+        dist = Math.ceil((xpos - final_x) / 10);
+        xpos = xpos - dist;
     }
-    if(ypos<final_y){
-        ypos++;
+    if (ypos < final_y) {
+        dist = Math.ceil((final_y - ypos) / 10);
+        ypos = ypos + dist;
     }
-    if(ypos>final_y){
-        ypos--;
+    if (ypos > final_y) {
+        dist = Math.ceil((ypos - final_y) / 10);
+        ypos = ypos - dist;
     }
-    elem.style.left=xpos+'px';
-    elem.style.ypos=ypos+'px';
-    var repeat = "moveElement('"+elementID+"',"+final_x+","+final_y+","+interval+")"
-    movement=setTimeout(repeat,interval);
+    elem.style.left = xpos + 'px';
+    elem.style.ypos = ypos + 'px';
+    var repeat = "moveElement('" + elementID + "'," + final_x + "," + final_y + "," + interval + ")"
+    elem.movement = setTimeout(repeat, interval);
 }
-addLoadEvent(moveElement);

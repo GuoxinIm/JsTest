@@ -7,14 +7,15 @@ function prepareSlideshow() {
     if (!document.getElementById("linklist")) {
         return false;
     }
-    if (!document.getElementById("preview")) {
-        return false;
-    }
-    //为图片应用样式
-    var preview = document.getElementById("preview");
-    preview.style.position = "absolute";
-    preview.style.left = "0px";
-    preview.style.top = "0px";
+    var slideshow=document.createElement("div");
+    slideshow.setAttribute("id","slideshow");
+    var preview=document.createElement("img");
+    preview.setAttribute("id","preview");
+    preview.setAttribute("alt","building blocks of web design")
+    preview.setAttribute("src","topics.gif");
+    slideshow.appendChild(preview);
+    var list = document.getElementById("linklist")
+    insertAfter(slideshow,list);
     //取得列表中所有的链接
     var list = document.getElementById("linklist");
     var links = list.getElementsByTagName("a");
