@@ -391,7 +391,7 @@ function focusLabels() {
             if (!document.getElementById(id)) {
                 return false;
             }
-            var element=document.getElementById(id);
+            var element = document.getElementById(id);
             element.focus();
         }
     }
@@ -399,21 +399,59 @@ function focusLabels() {
 addLoadEvent(focus);
 
 function resetFields(whichform) {
-  if (Modernizr.input.placeholder) return;
-  for (var i=0; i<whichform.elements.length; i++) {
-    var element = whichform.elements[i];
-    if (element.type == "submit") continue;
-    if (!element.getAttribute('placeholder')) continue;
-    element.onfocus = function() {
-    if (this.value == this.getAttribute('placeholder')) {
-      this.value = "";
-     }
+    if (Modernizr.input.placeholder) return;
+    for (var i = 0; i < whichform.elements.length; i++) {
+        var element = whichform.elements[i];
+        if (element.type == "submit") continue;
+        if (!element.getAttribute('placeholder')) continue;
+        element.onfocus = function () {
+            if (this.value == this.getAttribute('placeholder')) {
+                this.value = "";
+            }
+        }
+        element.onblur = function () {
+            if (this.value == "") {
+                this.value = this.getAttribute('placeholder');
+            }
+        }
+        element.onblur();
     }
-    element.onblur = function() {
-      if (this.value == "") {
-        this.value = this.getAttribute('placeholder');
-      }
-    }
-    element.onblur();
-  }
 }
+function validateForm(whichform) {
+    for (var i = 0; i < whichform.elements.length; i++) {
+        var element = whichform.elements[i];
+        if (element.getAttribute("required") == 'required') {
+            if (!isFilled(element)) {
+                alert("Please fill in the " + element.name + " field.");
+                return false;
+            }
+        }
+        if (element.getAttribute("type") == 'email') {
+            if (!isEmail(element)) {
+                alert("The " + element.name + " field must be a valid email address.");
+                return false;
+            }
+        }
+    }
+    return true;
+}
+function isFilled(field) {
+    return (field.value.length > 1 && field.value != field.placeholder);
+}
+
+function isEmail(field) {
+    return (field.value.indexOf("@") != -1 && field.value.indexOf(".") != -1);
+}
+function prepareForms() {
+    for (var i = 0; i < document.forms.length; i++) {
+        var thisform = document.forms[i];
+        resetFields(thisform);
+        thisform.onsubmit = function () {
+            if (!validateForm(this)) return false;
+            var article = document.getElementsByTagName('article')[0];
+            if (submitFormWithAjax(this, article)) return false;
+            return true;
+        }
+    }
+}
+addLoadEvent(prepareForms);
